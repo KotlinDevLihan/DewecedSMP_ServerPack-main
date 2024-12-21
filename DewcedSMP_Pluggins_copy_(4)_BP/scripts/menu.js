@@ -1,4 +1,4 @@
-import { world, system, ItemStack } from '@minecraft/server';
+import { world } from '@minecraft/server';
 import { ActionFormData } from '@minecraft/server-ui';
 
 function menu(player) {
@@ -31,14 +31,13 @@ function menu(player) {
     });
 }
 
-// Listen for item use events
-world.beforeEvents.itemUse.subscribe(event => {
-    const player = event.source;
-    const item = event.itemStack;
+// Listen for chat messages
+world.beforeEvents.chatSend.subscribe(event => {
+    const player = event.sender;
 
-    // Check if the item is a compass
-    if (item?.typeId === "minecraft:compass") {
-        menu(player);
-        event.cancel = true; // Prevent further action with the compass
+    // Check if the message is ".menu"
+    if (event.message.trim().toLowerCase() === '.menu') {
+        event.cancel = true; // Cancel the chat message
+        menu(player); // Open the menu
     }
 });
