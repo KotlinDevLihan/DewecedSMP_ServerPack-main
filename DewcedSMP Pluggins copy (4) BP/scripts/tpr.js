@@ -1,65 +1,84 @@
-import * as server from "@minecraft/server";
+import { world, system, Storage } from "@minecraft/server";
 
-const world = server.world;
+// Initialize storage for persistent data
+const storage = new Storage();
 
-// Store the last damage time for each player
-let playerDamageTime = {};
-
-function safeYCoordinate(x, z) {
-    let y = 100;
-    let groundFound = false;
-    let maxHeight = 320;
-    let minHeight = 64;
-
-    while (!groundFound && y <= maxHeight) {
-        const blockBelow = world.getBlock(x, y - 1, z); // Get the block directly below the y-coordinate
-        if (blockBelow && blockBelow.id !== "minecraft:air") {  // If it's not air (solid block)
-            groundFound = true;
-        } else {
-            y--;  // Try lower y-coordinates if ground is not found
-        }
+// Helper functions for persistent data
+function loadData(key) {
+    try {
+        return storage.getItem(key) ? JSON.parse(storage.getItem(key)) : {};
+    } catch (e) {
+        return {};
     }
-
-    if (!groundFound) {
-        y = 100;  // Fallback y if no valid ground is found
-    }
-
-    return y;
 }
 
-// Listen to player damage events to update the damage timestamp
-world.afterEvents.entityHit.subscribe((eventData) => {
-    if (eventData.entity instanceof server.Player) {
-        let player = eventData.entity;
-        playerDamageTime[player.id] = Date.now(); // Store the current timestamp of when the player was damaged
+function saveData(key, data) {
+    try {
+        storage.setItem(key, JSON.stringify(data));
+    } catch (e) {
+        console.error(`Failed to save data for key: ${key}`, e);
     }
+}
+
+// Persistent storage keys
+const HOMES_KEY = "playerHomes";
+const DAMAGE_TIME_KEY = "playerDamageTime";
+
+// Load data from storage
+let playerHomes = loadData(HOMES_KEY);
+let playerDamageTime = loadData(DAMAGE_TIME_KEY);
+
+// Helper to check if a cooldown is complete
+function isCooldownComplete(player, key, cooldownMs) {
+    const lastDamageTime = playerDamageTime[player.id] || 0;
+    return Date.now() - lastDamageTime > cooldownMs;
+}
+
+// Register custom commands
+world.beforeEvents.worldInitialize.subscribe(() => {
+    system.registerCommand("sethome", {
+        onRun({ player }) {
+            // Save the player's current location as their home
+            playerHomes[player.id] = {
+                x: player.position.x,
+                y: player.position.y,
+                z: player.position.z,
+            };
+
+            // Persist the data
+            saveData(HOMES_KEY, playerHomes);
+
+            player.sendMessage("Your home has been set!");
+        },
+    });
+
+    system.registerCommand("home", {
+        onRun({ player }) {
+            // Check if the player has taken damage in the last 30 seconds
+            if (!isCooldownComplete(player, DAMAGE_TIME_KEY, 30000)) {
+                player.sendMessage("You cannot teleport to your home because you have taken damage in the last 30 seconds!");
+                return;
+            }
+
+            // Check if the player has set a home
+            const home = playerHomes[player.id];
+            if (!home) {
+                player.sendMessage("You haven't set a home yet! Use .sethome to set your home.");
+                return;
+            }
+
+            // Teleport the player to their home
+            player.teleport({ x: home.x, y: home.y, z: home.z });
+            player.sendMessage("Teleported to your home!");
+        },
+    });
 });
 
-world.beforeEvents.chatSend.subscribe((eventData) => {
-    const player = eventData.sender;
-    const currentTime = Date.now();
-
-    // Check if the player has taken damage in the last 20 seconds (20000 milliseconds)
-    if (playerDamageTime[player.id] && (currentTime - playerDamageTime[player.id] < 30000)) {
-        // If the player took damage in the last 20 seconds, deny the command
-        player.sendMessage("You cannot teleport while you have taken damage in the last 20 seconds.");
-        eventData.cancel = true;
-        return;
-    }
-
-    switch (eventData.message) {
-        case ".rtp":
-            eventData.cancel = true;
-
-            // Generate random coordinates in a 5000x5000 block radius
-            let randomX = Math.floor(Math.random() * 10000) - 5000;  // Range from -5000 to 5000
-            let randomZ = Math.floor(Math.random() * 10000) - 5000;  // Range from -5000 to 5000
-
-            // Find a safe Y coordinate for the random position
-            let randomY = safeYCoordinate(randomX, randomZ);
-
-            // Teleport the player to the calculated safe random coordinates
-            player.runCommandAsync(`/tp ${randomX} ${randomY} ${randomZ}`);
-            break;
+// Track damage events and update timestamps
+world.afterEvents.entityHit.subscribe((event) => {
+    const player = event.entity;
+    if (player instanceof world.Player) {
+        playerDamageTime[player.id] = Date.now();
+        saveData(DAMAGE_TIME_KEY, playerDamageTime);
     }
 });
