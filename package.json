@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@minecraft/server-ui": "^1.3.0"
+  }
+}
