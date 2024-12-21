@@ -3,7 +3,7 @@ import { world, system, Player, Scoreboard } from "@minecraft/server";
 
 
 world.beforeEvents.chatSend.subscribe((ev) => {
-    const player:Player = ev.sender;
+    const player = ev.sender;
     const msg = ev.message;
     let damageTime = world.scoreboard.getObjective("Deweced:DamageTime").getScore(player.scoreboardIdentity)
 
