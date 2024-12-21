@@ -1,0 +1,32 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "bridge:dewcedsmpblock"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"n": {
+				"item": "minecraft:diamond_block"
+			},
+			"s": {
+				"item": "minecraft:emraled"
+			}
+		},
+		"pattern": [
+			"sss",
+			"sns",
+			"sss"
+		],
+		"result": {
+			"item": "bridge:dewcedsmpblock"
+		},
+		"unlock": [
+			{
+				"item": "minecraft:diamond"
+			}
+		]
+	}
+}

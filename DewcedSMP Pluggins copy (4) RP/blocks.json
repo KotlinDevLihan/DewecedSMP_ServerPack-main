@@ -1,0 +1,10 @@
+{
+	"bridge:compressedobsidianblock": {
+		"sound": "stone",
+		"textures": "bridge_compressedobsidianblock"
+	},
+	"bridge:dewcedsmpblock": {
+		"sound": "stone",
+		"textures": "bridge_dewcedsmpblock"
+	}
+}

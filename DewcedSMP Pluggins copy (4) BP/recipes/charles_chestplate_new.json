@@ -1,0 +1,28 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "bridge:charles_chestplate_new"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"r": {
+				"item": "redstone"
+			},
+			"d": {
+				"item": "diamond"
+			}
+		},
+		"pattern": [
+			"r r",
+			"ddd",
+			"rdr"
+		],
+		"result": {
+			"count": 1,
+			"item": "charles_chestplate"
+		}
+	}
+}

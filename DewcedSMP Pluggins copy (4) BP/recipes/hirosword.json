@@ -1,0 +1,35 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "bridge:hirosword"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"d": {
+				"item": "minecraft:diamond"
+			},
+			"s": {
+				"item": "minecraft:diamond_sword"
+			},
+			"e": {
+				"item": "minecraft:netherite_ingot"
+			}
+		},
+		"pattern": [
+			" d ",
+			"ese",
+			" d "
+		],
+		"result": {
+			"item": "bridge:hirosword"
+		},
+		"unlock": [
+			{
+				"item": "minecraft:diamond_sword"
+			}
+		]
+	}
+}

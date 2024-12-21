@@ -1,0 +1,23 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "bridge:hamburger",
+			"menu_category": {
+				"category": "equipment",
+				"group": "itemGroup.name.cooked_food"
+			}
+		},
+		"components": {
+			"minecraft:icon": "bridge_hamburger",
+			"minecraft:use_modifiers": {
+				"use_duration": 4
+			},
+			"minecraft:food": {
+				"nutrition": 20,
+				"saturation_modifier": 40
+			},
+			"minecraft:use_animation": "eat"
+		}
+	}
+}

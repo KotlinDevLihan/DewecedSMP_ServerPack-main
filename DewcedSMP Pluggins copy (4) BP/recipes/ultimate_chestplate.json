@@ -1,0 +1,28 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "bridge:ultimate_chestplate"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"e": {
+				"item": "emerald"
+			},
+			"b": {
+				"item": "block_of_emerald"
+			}
+		},
+		"pattern": [
+			"e e",
+			"bbb",
+			"bbb"
+		],
+		"result": {
+			"count": 1,
+			"item": "bridge:ultimate_chestplate"
+		}
+	}
+}

@@ -1,0 +1,32 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "bridge:hamburger"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"s": {
+				"item": "minecraft:cooked_beef"
+			},
+			"e": {
+				"item": "minecraft:bread"
+			}
+		},
+		"pattern": [
+			"eee",
+			"sss",
+			"eee"
+		],
+		"result": {
+			"item": "bridge:hamburger"
+		},
+		"unlock": [
+			{
+				"item": "minecraft:bread"
+			}
+		]
+	}
+}

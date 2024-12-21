@@ -1,0 +1,82 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "bridge:ultimatesythe",
+			"menu_category": {
+				"category": "equipment",
+				"group": "itemGroup.name.sword"
+			}
+		},
+		"components": {
+			"minecraft:max_stack_size": 1,
+			"minecraft:hand_equipped": true,
+			"minecraft:can_destroy_in_creative": false,
+			"minecraft:durability": {
+				"max_durability": 4062
+			},
+			"minecraft:icon": "bridge_ultimatesythe",
+			"minecraft:damage": 10,
+			"minecraft:enchantable": {
+				"value": 14,
+				"slot": "sword"
+			},
+			"minecraft:repairable": {
+				"repair_items": [
+					{
+						"items": [
+							"minecraft:nether_star"
+						],
+						"repair_amount": "query.max_durability*0.25"
+					},
+					{
+						"items": [
+							"bridge:ultimatesythe"
+						],
+						"repair_amount": "context.other->query.remaining_durability+0.12*context.other->query.max_durability"
+					}
+				]
+			},
+			"minecraft:digger": {
+				"use_efficiency": true,
+				"destroy_speeds": [
+					{
+						"block": "minecraft:wheat",
+						"speed": 300
+					},
+					{
+						"block": "minecraft:short_grass",
+						"speed": 300
+					},
+					{
+						"block": "minecraft:tall_grass",
+						"speed": 300
+					},
+					{
+						"block": "minecraft:fern",
+						"speed": 300
+					},
+					{
+						"block": "minecraft:large_fern",
+						"speed": 300
+					},
+					{
+						"block": "minecraft:carrots",
+						"speed": 300
+					},
+					{
+						"block": "minecraft:potatoes",
+						"speed": 300
+					}
+				]
+			},
+			"minecraft:tags": {
+				"tags": [
+					"minecraft:is_sword",
+					"minecraft:is_tool",
+					"minecraft:is_shovel"
+				]
+			}
+		}
+	}
+}

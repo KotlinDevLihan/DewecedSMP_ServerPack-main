@@ -1,0 +1,35 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "bridge:charlessword"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"d": {
+				"item": "minecraft:redstone"
+			},
+			"s": {
+				"item": "minecraft:diamond_sword"
+			},
+			"e": {
+				"item": "minecraft:netherite_ingot"
+			}
+		},
+		"pattern": [
+			" d ",
+			"ede",
+			" s "
+		],
+		"result": {
+			"item": "bridge:charlessword"
+		},
+		"unlock": [
+			{
+				"item": "minecraft:redstone"
+			}
+		]
+	}
+}

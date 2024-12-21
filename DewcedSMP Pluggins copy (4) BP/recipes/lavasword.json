@@ -1,0 +1,35 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "bridge:lavasword"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"d": {
+				"item": "minecraft:lava_bucket"
+			},
+			"s": {
+				"item": "minecraft:stick"
+			},
+			"e": {
+				"item": "minecraft:magma_block"
+			}
+		},
+		"pattern": [
+			" e ",
+			" d ",
+			" s "
+		],
+		"result": {
+			"item": "bridge:lavasword"
+		},
+		"unlock": [
+			{
+				"item": "minecraft:stick"
+			}
+		]
+	}
+}

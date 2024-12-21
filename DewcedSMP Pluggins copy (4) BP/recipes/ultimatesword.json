@@ -1,0 +1,38 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "bridge:ultimatesword"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"n": {
+				"item": "bridge:stardust"
+			},
+			"d": {
+				"item": "minecraft:diamond"
+			},
+			"s": {
+				"item": "minecraft:diamond_sword"
+			},
+			"e": {
+				"item": "minecraft:netherite_ingot"
+			}
+		},
+		"pattern": [
+			"ndn",
+			"ded",
+			"ese"
+		],
+		"result": {
+			"item": "bridge:ultimatesword"
+		},
+		"unlock": [
+			{
+				"item": "bridge:stardust"
+			}
+		]
+	}
+}

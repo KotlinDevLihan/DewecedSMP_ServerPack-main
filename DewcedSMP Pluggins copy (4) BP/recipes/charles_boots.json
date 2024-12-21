@@ -1,0 +1,27 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "bridge:charles_boots"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"r": {
+				"item": "redstone"
+			},
+			"d": {
+				"item": "diamond"
+			}
+		},
+		"pattern": [
+			"r r",
+			"d d"
+		],
+		"result": {
+			"count": 1,
+			"item": "charles_boots"
+		}
+	}
+}

@@ -1,0 +1,35 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "bridge:ultimatesythe"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"d": {
+				"item": "bridge:stardust"
+			},
+			"s": {
+				"item": "minecraft:netherite_ingot"
+			},
+			"e": {
+				"item": "minecraft:diamond_sword"
+			}
+		},
+		"pattern": [
+			"ddd",
+			" e ",
+			"s  "
+		],
+		"result": {
+			"item": "bridge:ultimatesythe"
+		},
+		"unlock": [
+			{
+				"item": "bridge:stardust"
+			}
+		]
+	}
+}

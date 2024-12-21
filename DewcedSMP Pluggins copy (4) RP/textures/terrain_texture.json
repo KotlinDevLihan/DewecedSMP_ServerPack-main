@@ -1,0 +1,14 @@
+{
+	"num_mip_levels": 4,
+	"padding": 8,
+	"resource_pack_name": "Doused SMP Addons",
+	"texture_name": "atlas.terrain",
+	"texture_data": {
+		"bridge_compressedobsidianblock": {
+			"textures": "textures/blocks/Compressed Obsidian Block"
+		},
+		"bridge_dewcedsmpblock": {
+			"textures": "textures/blocks/Dewced SMP Logo"
+		}
+	}
+}

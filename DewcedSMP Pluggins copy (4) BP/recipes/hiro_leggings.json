@@ -1,0 +1,28 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "bridge:hiro_leggings"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"l": {
+				"item": "lapiz_lasuli_block"
+			},
+			"d": {
+				"item": "diamond"
+			}
+		},
+		"pattern": [
+			"ldl",
+			"l l",
+			"d d"
+		],
+		"result": {
+			"count": 1,
+			"item": "hiro_leggings"
+		}
+	}
+}

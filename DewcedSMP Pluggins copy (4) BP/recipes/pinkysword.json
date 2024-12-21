@@ -1,0 +1,35 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "bridge:pinkysword"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"d": {
+				"item": "minecraft:diamond"
+			},
+			"s": {
+				"item": "minecraft:pink_dye"
+			},
+			"e": {
+				"item": "minecraft:stick"
+			}
+		},
+		"pattern": [
+			" s ",
+			" d ",
+			" e "
+		],
+		"result": {
+			"item": "bridge:pinkysword"
+		},
+		"unlock": [
+			{
+				"item": "minecraft:pink_dye"
+			}
+		]
+	}
+}

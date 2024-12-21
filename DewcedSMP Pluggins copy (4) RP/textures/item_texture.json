@@ -1,0 +1,114 @@
+{
+	"resource_pack_name": "Doused SMP Addons",
+	"texture_name": "atlas.items",
+	"texture_data": {
+		"bridge_ultimatesword": {
+			"textures": "textures/items/ultimatesword"
+		},
+		"bridge_ultimatepickaxe": {
+			"textures": "textures/items/ultimatepickaxe"
+		},
+		"bridge_hirosword": {
+			"textures": "textures/items/godenots-diamond-sword"
+		},
+		"bridge_charlessword": {
+			"textures": "textures/items/charles sword"
+		},
+		"bridge_obsidianblade": {
+			"textures": "textures/items/crying blade"
+		},
+		"bridge_thesword": {
+			"textures": "textures/items/The Sword"
+		},
+		"bridge_stardust": {
+			"textures": "textures/items/Star Dust"
+		},
+		"bridge_ultimatesythe": {
+			"textures": "textures/items/Ultimaate Sythe"
+		},
+		"bridge_ultimateshovel": {
+			"textures": "textures/items/tmhgy7eryf"
+		},
+		"bridge_hamburger": {
+			"textures": "textures/items/Hanburger"
+		},
+		"bridge_diamondingot": {
+			"textures": "textures/items/Diamond Ingot"
+		},
+		"bridge_compressedobsidian": {
+			"textures": "textures/items/Compressed Obsidian"
+		},
+		"bridge_charleschestplate_chestplate": {
+			"textures": "textures/items/charleschestplate_chestplate"
+		},
+		"bridge_2024christamssword": {
+			"textures": "textures/items/christmassword2024"
+		},
+		"bridge_dirtsword": {
+			"textures": "textures/items/Dirt Sword"
+		},
+		"bridge_lavasword": {
+			"textures": "textures/items/Lava Sword"
+		},
+		"bridge_pinkysword": {
+			"textures": "textures/items/Pinky"
+		},
+		"bridge_ultimateaxe": {
+			"textures": "textures/items/Ultimate axe"
+		},
+		"bridge_ultimateapple": {
+			"textures": "textures/items/Ultimate Apple"
+		},
+		"bridge_obsidian_helmet": {
+			"textures": "textures/items/obsidian_helmet"
+		},
+		"bridge_obsidian_chestplate": {
+			"textures": "textures/items/obsidian_chestplate"
+		},
+		"bridge_obsidian_leggings": {
+			"textures": "textures/items/obsidian_leggings"
+		},
+		"bridge_obsidian_boots": {
+			"textures": "textures/items/obsidian_boots"
+		},
+		"bridge_charles_helmet": {
+			"textures": "textures/items/charles_helmet"
+		},
+		"bridge_charles_chestplate": {
+			"textures": "textures/items/charles_chestplate"
+		},
+		"bridge_charles_leggings": {
+			"textures": "textures/items/charles_leggings"
+		},
+		"bridge_charles_boots": {
+			"textures": "textures/items/charles_boots"
+		},
+		"bridge_hiro_helmet": {
+			"textures": "textures/items/hiro_helmet"
+		},
+		"bridge_hiro_chestplate": {
+			"textures": "textures/items/hiro_chestplate"
+		},
+		"bridge_hiro_leggings": {
+			"textures": "textures/items/hiro_leggings"
+		},
+		"bridge_hiro_boots": {
+			"textures": "textures/items/hiro_boots"
+		},
+		"bridge_santa_sword": {
+			"textures": "textures/items/santa_sword"
+		},
+		"bridge_ultimate_helmet": {
+			"textures": "textures/items/ultimate_helmet"
+		},
+		"bridge_ultimate_chestplate": {
+			"textures": "textures/items/ultimate_chestplate"
+		},
+		"bridge_ultimate_leggings": {
+			"textures": "textures/items/ultimate_leggings"
+		},
+		"bridge_ultimate_boots": {
+			"textures": "textures/items/ultimate_boots"
+		}
+	}
+}

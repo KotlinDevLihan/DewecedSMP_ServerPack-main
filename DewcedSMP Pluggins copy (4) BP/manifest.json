@@ -1,0 +1,96 @@
+{
+	"format_version": 2,
+	"metadata": {
+		"authors": [
+			"Charles4144"
+		],
+		"generated_with": {
+			"bridge": [
+				"2.7.42"
+			],
+			"dash": [
+				"0.11.7"
+			]
+		}
+	},
+	"header": {
+		"name": "pack.name",
+		"description": "pack.description",
+		"min_engine_version": [
+			1,
+			21,
+			0
+		],
+		"uuid": "ffc9bce6-af4d-440e-9904-d264b0fa509f",
+		"version": [
+			1,
+			0,
+			5
+		]
+	},
+	"modules": [
+		{
+			"type": "data",
+			"uuid": "8f349e9f-a557-43a3-bca8-40a9e70a1bde",
+			"version": [
+				1,
+				0,
+				0
+			]
+		},
+		{
+			"type": "script",
+			"language": "javascript",
+			"uuid": "67c9c7e9-9fc9-488d-a8f5-07a118fe19c1",
+			"entry": "scripts/spawn.js",
+			"version": [
+				1,
+				0,
+				0
+			]
+		},
+		{
+			"type": "script",
+			"language": "javascript",
+			"entry": "scripts/tpa",
+			"uuid": "c7f1dd87-d2ee-4db0-ae10-9c52f1061b0b",
+			"version": [
+				1,
+				0,
+				0
+			]
+		},
+		{
+			"type": "script",
+			"language": "javascript",
+			"entry": "scripts/tpr",
+			"uuid": "da2609ff-813c-4716-86b3-b1cb738823e5",
+			"version": [
+				1,
+				0,
+				0
+			]
+		},
+		{
+			"language": "javascript",
+			"type": "script",
+			"entry": "scripts/sethome_home_commands",
+			"uuid": "fc78f503-9e56-42f4-b722-aedffd77ff83",
+			"version": [
+				1,
+				0,
+				0
+			]
+		}
+	],
+	"dependencies": [
+		{
+			"module_name": "@minecraft/server",
+			"version": "1.17.0-beta"
+		},
+		{
+			"module_name": "@minecraft/server-ui",
+			"version": "1.2.0"
+		}
+	]
+}

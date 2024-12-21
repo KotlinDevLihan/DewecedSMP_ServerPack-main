@@ -1,0 +1,35 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "bridge:ultimateapple"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"s": {
+				"item": "bridge:stardust"
+			},
+			"e": {
+				"item": "minecraft:enchanted_golden_apple"
+			},
+			"w": {
+				"item": "bridge:diamondingot"
+			}
+		},
+		"pattern": [
+			"wsw",
+			"ses",
+			"wew"
+		],
+		"result": {
+			"item": "bridge:ultimateapple"
+		},
+		"unlock": [
+			{
+				"item": "bridge:stardust"
+			}
+		]
+	}
+}

@@ -1,0 +1,32 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "bridge:dirtsword"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"d": {
+				"item": "minecraft:dirt"
+			},
+			"s": {
+				"item": "minecraft:stick"
+			}
+		},
+		"pattern": [
+			" d ",
+			" d ",
+			" s "
+		],
+		"result": {
+			"item": "bridge:dirtsword"
+		},
+		"unlock": [
+			{
+				"item": "minecraft:dirt"
+			}
+		]
+	}
+}

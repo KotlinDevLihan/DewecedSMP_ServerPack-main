@@ -1,0 +1,52 @@
+{
+	"format_version": 2,
+	"metadata": {
+		"authors": [
+			"Charles4144"
+		],
+		"generated_with": {
+			"bridge": [
+				"2.7.42"
+			],
+			"dash": [
+				"0.11.7"
+			]
+		}
+	},
+	"header": {
+		"name": "pack.name",
+		"description": "pack.description",
+		"min_engine_version": [
+			1,
+			21,
+			0
+		],
+		"uuid": "67c9c7e9-9fc9-488d-a8f5-07a118fe19c1",
+		"version": [
+			1,
+			0,
+			5
+		]
+	},
+	"modules": [
+		{
+			"type": "resources",
+			"uuid": "364e6312-bcfa-43aa-83d6-857831fed4fb",
+			"version": [
+				1,
+				0,
+				0
+			]
+		}
+	],
+	"dependencies": [
+		{
+			"uuid": "ffc9bce6-af4d-440e-9904-d264b0fa509f",
+			"version": [
+				1,
+				0,
+				5
+			]
+		}
+	]
+}

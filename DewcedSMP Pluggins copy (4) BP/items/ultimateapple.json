@@ -1,0 +1,41 @@
+{
+	"format_version": "1.18.0",
+	"minecraft:item": {
+		"description": {
+			"identifier": "bridge:ultimateapple",
+			"menu_category": {
+				"category": "nature"
+			}
+		},
+		"components": {
+			"minecraft:icon": "bridge_ultimateapple",
+			"minecraft:use_modifiers": {
+				"use_duration": 1.6
+			},
+			"minecraft:food": {
+				"nutrition": 100,
+				"saturation_modifier": "supernatural",
+				"effects": [
+					{
+						"name": "regeneration",
+						"duration": 120,
+						"amplifier": 5,
+						"chance": 1
+					},
+					{
+						"name": "absorption",
+						"duration": 600,
+						"amplifier": 10,
+						"chance": 1
+					},
+					{
+						"name": "health_boost",
+						"duration": 900,
+						"amplifier": 2,
+						"chance": 1
+					}
+				]
+			}
+		}
+	}
+}

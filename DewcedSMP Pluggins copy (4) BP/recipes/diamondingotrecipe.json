@@ -1,0 +1,32 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "bridge:diamondingot"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"d": {
+				"item": "minecraft:diamond"
+			},
+			"e": {
+				"item": "minecraft:diamond_block"
+			}
+		},
+		"pattern": [
+			"ddd",
+			"ded",
+			"ddd"
+		],
+		"result": {
+			"item": "bridge:diamondingot"
+		},
+		"unlock": [
+			{
+				"item": "minecraft:diamond"
+			}
+		]
+	}
+}

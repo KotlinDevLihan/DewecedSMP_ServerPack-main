@@ -1,0 +1,35 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "bridge:obsidianblade"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"d": {
+				"item": "minecraft:crying_obsidian"
+			},
+			"s": {
+				"item": "minecraft:diamond_sword"
+			},
+			"e": {
+				"item": "minecraft:netherite_ingot"
+			}
+		},
+		"pattern": [
+			" d ",
+			"ded",
+			" s "
+		],
+		"result": {
+			"item": "bridge:obsidianblade"
+		},
+		"unlock": [
+			{
+				"item": "minecraft:crying_obsidian"
+			}
+		]
+	}
+}

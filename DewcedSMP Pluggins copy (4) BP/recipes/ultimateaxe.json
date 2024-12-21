@@ -1,0 +1,35 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "bridge:ultimateaxe"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"d": {
+				"item": "bridge:stardust"
+			},
+			"s": {
+				"item": "minecraft:diamond_sword"
+			},
+			"e": {
+				"item": "bridge:diamondingot"
+			}
+		},
+		"pattern": [
+			"dd ",
+			"ds",
+			" e "
+		],
+		"result": {
+			"item": "bridge:ultimateaxe"
+		},
+		"unlock": [
+			{
+				"item": "bridge:stardust"
+			}
+		]
+	}
+}

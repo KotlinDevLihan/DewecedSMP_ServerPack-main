@@ -1,0 +1,25 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "bridge:obsidian_leggings"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"o": {
+				"item": "obsidian"
+			}
+		},
+		"pattern": [
+			"ooo",
+			"o o",
+			"o o"
+		],
+		"result": {
+			"count": 1,
+			"item": "obsidian_leggings"
+		}
+	}
+}

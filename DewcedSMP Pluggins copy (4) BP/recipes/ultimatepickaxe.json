@@ -1,0 +1,38 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "bridge:ultimatepickaxe"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"w": {
+				"item": "bridge:stardust"
+			},
+			"d": {
+				"item": "minecraft:diamond"
+			},
+			"s": {
+				"item": "minecraft:diamond_pickaxe"
+			},
+			"e": {
+				"item": "minecraft:netherite_ingot"
+			}
+		},
+		"pattern": [
+			"wew",
+			"ese",
+			" d "
+		],
+		"result": {
+			"item": "bridge:ultimatepickaxe"
+		},
+		"unlock": [
+			{
+				"item": "bridge:stardust"
+			}
+		]
+	}
+}

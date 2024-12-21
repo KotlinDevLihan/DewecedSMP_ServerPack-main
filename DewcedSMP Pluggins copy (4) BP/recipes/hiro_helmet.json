@@ -1,0 +1,27 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "bridge:hiro_helmet"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"l": {
+				"item": "lapiz_lasuli_block"
+			},
+			"d": {
+				"item": "diamond"
+			}
+		},
+		"pattern": [
+			"ldl",
+			"l d"
+		],
+		"result": {
+			"count": 1,
+			"item": "hiro_helmet"
+		}
+	}
+}
