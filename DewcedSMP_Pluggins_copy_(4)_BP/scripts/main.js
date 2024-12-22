@@ -349,99 +349,148 @@ world.beforeEvents.chatSend.subscribe((event) => {
 
 
 // .sethome and .home commands
-const PREFIX = ".";
+import {system, world, Vector} from "@minecraft/server"
+import isMoving from "./index.js"; 
+const prefix = "+"
 
-world.beforeEvents.chatSend.subscribe((e) => {
-    const { sender: player, message: msg } = e;
-    if (!msg.startsWith(PREFIX)) return;
+// Help Message 
+const helpmsg = `
+§a<<Help>> :
 
-    e.cancel = true;
-    const args = msg.slice(1).split(" ");
-    const cmd = args[0];
+§6SetHome§f:
+- §6Command: §7+set\n
+- §6Usage: §7+set <name>\n
+- §6Description: §7Creates a new home with the given name.\n
+- §6Example: §7+set myhouse\n
+- §6Result: §7Creates a new home named "myhouse".\n
+§6TeleportoHome§f:
+- §6Command: §7+home\n
+- §6Usage: §7+home <name>\n
+- §6Description: §7Teleports the player to their home with the given name.\n
+- §6Example: §7+home myhouse\n
+- §6Result: §7Teleports the player to the home named "myhouse".\n
+§6DeleteHome§f:
+- §6Command: §7+delhome\n
+- §6Usage: §7+delhome <name>\n
+- §6Description: §7Deletes the home with the given name.\n
+- §6Example: §7+delhome myhouse\n
+- §6Result: §7Deletes the home named "myhouse".
+`;
 
-    system.run(() => {
-        commandParser(player, cmd, args);
-    })
-})
+// To stop Watchdog Termination
+system.events.beforeWatchdogTerminate.subscribe(eventData => eventData.cancel = true);
 
-function commandParser(player, cmd, args) {
+function setHome(data) {
+  const player = data.sender;
+  const msg = data.message.split(" ")[1]
+  if (!msg) {
+    player.sendMessage("§cPlease provide a name for the home to create.");
+    player.playSound("note.bass")
+    return;
+  }
+  const x = Math.floor(player.location.x)
+  const y = Math.floor(player.location.y)
+  const z = Math.floor(player.location.z)
+  const dimension = player.dimension.id.replace("minecraft:", "")
+  const homeTag = `home:${msg},${x},${y},${z},${dimension}`;
+  const existingTag = player.getTags().find(t => t.replace("home:", "").split(",")[0] === msg)
+  if (existingTag) {
+    const existingName = existingTag.replace("home:", "");
+    player.sendMessage(`§cYou already have a home named "${existingName}".`);
+    player.playSound("note.bass")
+    return;
+  }
+  player.addTag(homeTag);
+  player.sendMessage(`§aHome "${msg}" has been set.`);
+  player.playSound("random.toast")
+}
 
-    switch (cmd) {
-
-        case "sethome":
-            const xLoc = parseFloat(player.location.x.toFixed(0));
-            const yLoc = parseFloat(player.location.y.toFixed(0));
-            const zLoc = parseFloat(player.location.z.toFixed(0));
-
-            if (args[1] == "1") {
-                sethome(player, "1", { x: xLoc, y: yLoc, z: zLoc });
-                player.sendMessage(`Sethome 1 to: ${xLoc}, ${yLoc}, ${zLoc}`)
-            }
-
-            if (args[1] == "2") {
-                sethome(player, "2", { x: xLoc, y: yLoc, z: zLoc });
-                player.sendMessage(`Sethome 2 to: ${xLoc}, ${yLoc}, ${zLoc}`)
-            }
-
-            if (args[1] == "3") {
-                sethome(player, "3", { x: xLoc, y: yLoc, z: zLoc });
-                player.sendMessage(`Sethome 3 to: ${xLoc}, ${yLoc}, ${zLoc}`)
-            }
-
-            break;
-
-        case "homes":
-            for (let i = 1; i <= 3; i++) {
-                if (hashome(player, i)) {
-                    const { x, y, z } = player.getDynamicProperty(`home${i}`);
-                    player.sendMessage(`Home${i}: ${x} ${y} ${z}`);
-                } else {
-                    player.sendMessage(`Home${i}: Not set!`);
-                }
-            }
-            break;
-
-        case "home":
-            if (args[1] == "1") {
-                if (hashome(player, args[1])) {
-                    player.sendMessage(`Successfully teleported to home ${args[1]}`);
-                    player.teleport(player.getDynamicProperty(`home${args[1]}`));
-                } else {
-                    player.sendMessage(`Home ${args[1]} has not been set!`);
-                }
-            }
-
-            if (args[1] == "2") {
-                if (hashome(player, args[1])) {
-                    player.sendMessage(`Successfully teleported to home ${args[1]}`);
-                    player.teleport(player.getDynamicProperty(`home${args[1]}`));
-                } else {
-                    player.sendMessage(`Home ${args[1]} has not been set!`);
-                }
-            }
-
-            if (args[1] == "3") {
-                if (hashome(player, args[1])) {
-                    player.teleport(player.getDynamicProperty(`home${args[1]}`));
-                    player.sendMessage(`Successfully teleported to home ${args[1]}`);
-                } else {
-                    player.sendMessage(`Home ${args[1]} has not been set!`);
-                }
-            }
+function home(data) {
+  const player = data.sender;
+  const msg = data.message.split(" ")[1];
+  if (!msg) {
+    player.sendMessage("§cPlease provide a name for the home to teleport.");
+    player.playSound("note.bass")
+    return;
+  }
+  const homeTag = player.getTags().find(t => t.replace("home:", "").split(",")[0] === msg);
+  if (!homeTag) {
+    const homeNames = player.getTags().filter(t => t.startsWith("home:")).map(tag => tag.replace("home:", "").split(",")[0]);
+    player.sendMessage(`§cHome named ${msg} not found.`);
+    player.playSound("note.bass")
+    if (homeNames.length > 0) {
+      player.sendMessage(`§6Available homes: §7\n${homeNames.join(",\n")}\n`);
+      player.playSound("note.bass")
+    } else {
+      player.sendMessage("§cYou don't have any homes set yet. §aUse +set <name> to set a new home.");
+      player.playSound("note.bass")
     }
-}
+    return;
+  }
 
-function sethome(player, homeNum, location) {
-    player.setDynamicProperty(`home${homeNum}`, location);
-}
-
-function hashome(player, home) {
-    if (player.getDynamicProperty(`home${home}`)) return true;
-    return false;
-}
-
-function gethome(player, home) {
-    if (player.getDynamicProperty(`home${home}`)) {
-        return player.getDynamicProperty(`home${home}`);
+  const [, x, y, z, dimension] = homeTag.split(":")[1].split(",");
+  const dim = world.getDimension(dimension);
+  
+  const delay = 5;
+  let count = delay;
+  const delayed = system.runInterval(() => {
+    if (isMoving(player) === true) {
+      player.sendMessage("§cTeleport Cancelled. Player is moving")
+      player.playSound("note.bass")
+      system.clearRun(delayed)
+      return;
     }
+    if (count > 0) {
+      player.sendMessage(`§dTeleporting§f in ${count} second(s) to home: ["${msg}": §7${x}, ${y}, ${z}§f]. §c(Don't Move)`);
+      player.playSound("note.pling")
+      count--;
+    } else {
+      system.clearRun(delayed);
+      player.teleport(new Vector(parseInt(x), parseInt(y), parseInt(z)), dim, player.getRotation().x, player.getRotation().y, false);
+      player.sendMessage(`§dTeleported §fto home: §7${msg}.`);
+      player.playSound("mob.enderman_portal")
+    }
+  }, 20);
 }
+
+function delhome(data) {
+  const player = data.sender;
+  const msg = data.message.split(" ")[1];
+  if (!msg) {
+    player.sendMessage("§cPlease provide a name for the home to delete.")
+    player.playSound("note.bass")
+  }
+  const homeTag = player.getTags().find(t => t.replace("home:", "").split(",")[0] === msg);
+  if (!homeTag) {
+    player.sendMessage(`§cHome named ${msg} not found.`);
+    player.playSound("note.bass")
+    return;
+  }
+  player.removeTag(homeTag);
+  player.sendMessage(`§aHome "${msg}" has been deleted.`);
+  player.playSound("random.toast")
+}
+
+world.events.beforeChat.subscribe((eventData) => {
+  const player = eventData.sender;
+  if (!eventData.message.startsWith(prefix)) return
+  switch (eventData.message.replace(prefix, "").split(" ")[0]) {
+    case 'set':
+      eventData.cancel = true;
+      setHome(eventData);
+      break;
+    case 'home':
+      eventData.cancel = true;
+      home(eventData);
+      break;
+    case 'help':
+      eventData.cancel = true;
+      player.sendMessage(helpmsg)
+      break;
+    case 'delhome':
+      eventData.cancel = true;
+      delhome(eventData)
+      break;
+    default: break;
+  }
+});
